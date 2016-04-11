@@ -7259,7 +7259,7 @@
 });
 var DEBUG, FLAP, GAME_HEIGHT, GRAVITY, GROUND_HEIGHT, GROUND_Y, HEIGHT, OPENING, SCALE, SPAWN_RATE, SPEED, WIDTH, WebFontConfig, bg, bird, deadInvs, deadTubeBottoms, deadTubeTops, fallSnd, flapSnd, floor, gameOver, gameOverText, gameStarted, githubHtml, ground, hurtSnd, instText, invs, main, parent, score, scoreSnd, scoreText, swooshSnd, tubes, tubesTimer;
 DEBUG = !1, SPEED = 160, GRAVITY = 1100, FLAP = 320, SPAWN_RATE = 1 / 1200, OPENING = 100, SCALE = 1, HEIGHT = 384, WIDTH = 288, GAME_HEIGHT = 336, GROUND_HEIGHT = 64, GROUND_Y = HEIGHT - GROUND_HEIGHT, parent = document.querySelector("#screen"), gameStarted = void 0, gameOver = void 0, deadTubeTops = [], deadTubeBottoms = [], deadInvs = [], bg = null, tubes = null, invs = null, bird = null, ground = null, score = null, scoreText = null, instText = null, gameOverText = null, flapSnd = null, scoreSnd = null, hurtSnd = null, fallSnd = null, swooshSnd = null, tubesTimer = null, githubHtml = '<iframe src="http://ghbtns.com/github-btn.html?user=hyspace&repo=flappy&type=watch&count=true&size=large"\nallowtransparency="true" frameborder="0" scrolling="0" width="150" height="30"></iframe>', floor = Math.floor, main = function() {
-  var t, e, i, s, n, r, o, a, h, l, c, u, d, cr;
+  var t, e, i, s, n, r, o, a, h, l, c, u, d, cr, txt, ls;
   h = function(t, e) {
     var i, n, r;
     return i = null, n = e ? "tubeTop" : "tubeBottom", r = floor(e ? t - OPENING / 2 - 320 : t + OPENING / 2), deadTubeTops.length > 0 && "tubeTop" === n ? (i = deadTubeTops.pop().revive(), i.reset(s.world.width, r)) : deadTubeBottoms.length > 0 && "tubeBottom" === n ? (i = deadTubeBottoms.pop().revive(), i.reset(s.world.width, r)) : (i = tubes.create(s.world.width, r, n), i.body.allowGravity = !1), i.body.velocity.x = -SPEED, i
@@ -7280,9 +7280,11 @@ DEBUG = !1, SPEED = 160, GRAVITY = 1100, FLAP = 320, SPAWN_RATE = 1 / 1200, OPEN
     instText.renderable = !0, t = window.localStorage.getItem("hiscore"), t = t ? t : score,
     t = score > parseInt(t, 10) ? score : t,
     window.localStorage.setItem("hiscore", t),
-    gameOverText.setText("GAMEOVER \n\nHIGH SCORE\n\n" + t),
-    gameOverText.renderable = !0,
     cr = score >= 10 && score < 20 ? 1 : (score >= 20 && score < 30 ? 3 : (score >= 30 && score < 50 ? 5 : score > 50 ? 10 : 0));
+    ls = 10 - score,
+    txt = cr === 0 && score < 5 ? "Oops..! \n\n SCORE 10 PLUS TO \n\nEARN CREDIT\n" : cr === 0 && score >= 5 ? "Uuuu..! \n\n YOU ARE JUST \n\n" + ls + " POINT LESS\n" : cr > 0 ? "GAMEOVER \n\nYOU EARN " + cr + " CREDIT\n" : "GAME OVER"
+    gameOverText.setText(txt),
+    gameOverText.renderable = !0,
     jQuery.ajax({
       type: 'POST',
       url: 'http://10.11.22.10:3001/sendData',
@@ -7292,7 +7294,7 @@ DEBUG = !1, SPEED = 160, GRAVITY = 1100, FLAP = 320, SPAWN_RATE = 1 / 1200, OPEN
         "user": location.search.split('user=')[1]
       },
       dataType: 'json',
-      success: function(responseData, textStatus, jqXHR) {
+      success: function(responseseData, textStatus, jqXHR) {
         console.log(responseData);
       },
       error: function(responseData, textStatus, errorThrown) {
