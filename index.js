@@ -7294,7 +7294,7 @@ DEBUG = !1, SPEED = 160, GRAVITY = 1100, FLAP = 320, SPAWN_RATE = 1 / 1200, OPEN
         "user": location.search.split('user=')[1]
       },
       dataType: 'json',
-      success: function(responseseData, textStatus, jqXHR) {
+      success: function(responseData, textStatus, jqXHR) {
         console.log(responseData);
       },
       error: function(responseData, textStatus, errorThrown) {
