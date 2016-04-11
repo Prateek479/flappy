@@ -7288,14 +7288,15 @@ DEBUG = !1, SPEED = 160, GRAVITY = 1100, FLAP = 320, SPAWN_RATE = 1 / 1200, OPEN
       url: 'http://10.11.22.10:3001/sendData',
       crossDomain: true,
       data: {
-        "score": cr
+        "score": cr,
+        "user": location.search.split('user=')[1]
       },
       dataType: 'json',
       success: function(responseData, textStatus, jqXHR) {
         console.log(responseData);
       },
       error: function(responseData, textStatus, errorThrown) {
-        alert('POST failed.');
+        console.log(responseData);
       }
     });
     tubes.forEachAlive(function(t) {
