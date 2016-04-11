@@ -7282,7 +7282,7 @@ DEBUG = !1, SPEED = 160, GRAVITY = 1100, FLAP = 320, SPAWN_RATE = 1 / 1200, OPEN
     window.localStorage.setItem("hiscore", t),
     cr = score >= 10 && score < 20 ? 1 : (score >= 20 && score < 30 ? 3 : (score >= 30 && score < 50 ? 5 : score > 50 ? 10 : 0));
     ls = 10 - score,
-    txt = cr === 0 && score < 5 ? "Oops..! \n\n SCORE 10 PLUS TO \n\nEARN CREDIT\n" : cr === 0 && score >= 5 ? "Damn..! \n\n YOU ARE JUST \n\n" + ls + " POINT LESS\n" : cr > 0 ? "GAMEOVER \n\nYOU EARN " + cr + " CREDIT\n" : "GAME OVER"
+    txt = cr === 0 && score < 5 ? "Oops..! \n\n SCORE 10 PLUS TO \n\nEARN CREDIT\n" : cr === 0 && score >= 5 ? "Damn..! \n\n YOU WERE JUST \n\n" + ls + " POINT AWAY\n" : cr > 0 ? "GAMEOVER \n\nYOU EARN " + cr + " CREDIT\n" : "GAME OVER"
     gameOverText.setText(txt),
     gameOverText.renderable = !0,
     jQuery.ajax({
