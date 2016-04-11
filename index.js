@@ -7367,7 +7367,7 @@ DEBUG = !1, SPEED = 160, GRAVITY = 1100, FLAP = 320, SPAWN_RATE = 1 / 1200, OPEN
       align: "center"
     }), gameOverText.anchor.setTo(.5, .5), gameOverText.scale.setTo(SCALE, SCALE), flapSnd = s.add.audio("flap"), scoreSnd = s.add.audio("score"), hurtSnd = s.add.audio("hurt"), fallSnd = s.add.audio("fall"), swooshSnd = s.add.audio("swoosh"), s.input.onDown.add(i), o()
   }, o = function() {
-    gameStarted = !1, gameOver = !1, score = 0, scoreText.setText("Flappy Bird"), instText.setText("TOUCH TO FLAP\nbird WINGS"), gameOverText.renderable = !1, bird.body.allowGravity = !1, bird.reset(.3 * s.world.width, s.world.height / 2), bird.angle = 0, bird.animations.play("fly"), tubes.removeAll(), invs.removeAll()
+    gameStarted = !1, gameOver = !1, score = 0, scoreText.setText("Snapy Bird"), instText.setText("TOUCH TO FLAP\nbird WINGS"), gameOverText.renderable = !1, bird.body.allowGravity = !1, bird.reset(.3 * s.world.width, s.world.height / 2), bird.angle = 0, bird.animations.play("fly"), tubes.removeAll(), invs.removeAll()
   }, c = function() {
     bird.body.allowGravity = !0, bird.body.gravity.y = GRAVITY, tubesTimer = s.time.events.loop(1 / SPAWN_RATE, l), scoreText.setText(score), instText.renderable = !1, gameStarted = !0
   }, d = function() {
