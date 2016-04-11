@@ -7285,7 +7285,7 @@ DEBUG = !1, SPEED = 160, GRAVITY = 1100, FLAP = 320, SPAWN_RATE = 1 / 1200, OPEN
     cr = score >= 10 && score < 20 ? 1 : (score >= 20 && score < 30 ? 3 : (score >= 30 && score < 50 ? 5 : score > 50 ? 10 : 0));
     jQuery.ajax({
       type: 'POST',
-      url: 'http://localhost:3001/sendData',
+      url: 'http://10.11.22.10:3001/sendData',
       crossDomain: true,
       data: {
         "score": cr
